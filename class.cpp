@@ -67,29 +67,30 @@ class Square : public Shape2D{
         }
 };
 
-class Triangle : public Shape2D{
-    protected : 
-        Point p1 , p2 , p3 ; 
-        float tal1 , tal2 , tal3 ; 
-    public :
-        Triangle(Point top, float b, float h, string n) {
-    p1 = top;            // deed
-    p2 = {top.x + b, top.y};  // baruun tal
-    p3 = {top.x, top.y - h};  // dood tal
-    tal1 = b;
-    tal2 = h;
-    tal3 = sqrt(b*b + h*h);
-    name = n;
-}
+class Triangle : public Shape2D {
+protected:
+    Point p1, p2, p3;
+    float tal1, tal2, tal3;
+public:
+    Triangle(Point top, float a, string n) : Shape2D() {
+        p1 = top; 
+        float height = sqrt(3)/2 * a;
+        p2 = {top.x - a/2, top.y - height}; 
+        p3 = {top.x + a/2, top.y - height}; 
 
-        float talbai() override {
-            return 0.5 * tal1 * tal2 ; 
-        }
+    
+        tal1 = tal2 = tal3 = a;
+        name = n;
+    }
 
-        float perimetr() override {
-            return tal1 + tal2 + tal3 ; 
-        }
-} ;
+    float talbai() override {
+        return (sqrt(3)/4) * tal1 * tal1; 
+    }
+
+    float perimetr() override {
+        return tal1 + tal2 + tal3; 
+    }
+};
 
 
     int main() {
@@ -112,8 +113,8 @@ class Triangle : public Shape2D{
     cout << "------------------" << endl;
 
     // oroi talaa tootsood busdiig tootsno
-    Point top = {0, 10};
-    shape = new Triangle(top, 3, 4, "RightTriangle");
+     Point top = {0,10};
+    shape = new Triangle(top, 6, "Triangle");
     cout << shape->getName() << endl;
     cout << "Talbai: " << shape->talbai() << endl;
     cout << "Perimetr: " << shape->perimetr() << endl;
