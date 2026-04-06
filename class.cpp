@@ -49,12 +49,13 @@ class Square : public Shape2D{
         Point p1 , p2 , p3 , p4 ; 
         float tal ; 
     public :
-        Square(Point p1 , Point p2 , Point p3 , Point p4 , float tal){
+        Square(Point p1 , Point p2 , Point p3 , Point p4 , float tal , string name){
             this->p1 = p1 ; 
             this->p2 = p2 ; 
             this->p3 = p3 ; 
             this->p4 = p4 ; 
             this->tal = tal ;
+            this->name = name ; 
         }
 
         float talbai() override {
