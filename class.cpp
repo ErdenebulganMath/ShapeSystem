@@ -92,5 +92,35 @@ class Triangle : public Shape2D{
         }
 } ;
 
+int main(){
+    // Tseguud
+    Point c = {0, 0};
+    Point s1 = {0,0}, s2 = {1,0}, s3 = {1,1}, s4 = {0,1};
+    Point t1 = {0,0}, t2 = {4,0}, t3 = {0,3};
+
+    Shape2D* shape;
+
+    // Circle
+    shape = new Circle(c, 5, "Circle");
+    cout << shape->getName() << endl;
+    cout << "Talbai: " << shape->talbai() << endl;
+    cout << "Perimetr: " << shape->perimetr() << endl;
+    cout << "------------------" << endl;
+
+    // Square
+    shape = new Square(s1, s2, s3, s4, 2, "Square");
+    cout << shape->getName() << endl;
+    cout << "Talbai: " << shape->talbai() << endl;
+    cout << "Perimetr: " << shape->perimetr() << endl;
+    cout << "------------------" << endl;
+
+    // Triangle
+    shape = new Triangle(t1, t2, t3, 3, 4, 5, "Triangle");
+    cout << shape->getName() << endl;
+    cout << "Talbai: " << shape->talbai() << endl;
+    cout << "Perimetr: " << shape->perimetr() << endl;
+
+    return 0;
+}
 
 
